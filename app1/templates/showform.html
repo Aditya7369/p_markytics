@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+  {% block title %}New Master Incident{% endblock title %}
+    {% block containt %}
+    <h1>New Master Incident</h1>
+    <form action="" method="post">{% csrf_token %}
+        <p><label for="id_location1">Location1:</label> <select name="location1" required id="id_location1">
+      <option value="" selected>---------</option>
+    
+      <option value="CH">Corporate Headoffice</option>
+    
+      <option value="OD">Operations Department</option>
+    
+      <option value="WS">Work Station</option>
+    
+      <option value="MD">Marketing Division</option>
+    
+    </select></p>
+    <p><label for="id_location2">Location2:</label> <textarea name="location2" cols="40" rows="10" required id="id_location2">
+    </textarea></p>
+    <p><label for="id_decription">Decription:</label> <textarea name="decription" cols="40" rows="10" required id="id_decription">
+    </textarea></p>
+    <p><label for="id_date">Date:</label> <input type="date" name="date" class="vDateField" size="10" required id="id_date"></p>
+    <p><label for="id_time">Time:</label> <input type="time" name="time" class="vTimeField" size="8" required id="id_time"></p>
+    <p><label for="id_severity">Severity:</label> <select name="severity" required id="id_severity">
+      <option value="" selected>---------</option>
+    
+      <option value="Mild">Mild</option>
+    
+      <option value="Moderate">Moderate</option>
+    
+      <option value="Severe">Severe</option>
+    
+      <option value="Fatal">Fatal</option>
+    
+    </select></p>
+    <p><label for="id_cause">Cause:</label> <textarea name="cause" cols="40" rows="10" required id="id_cause">
+    </textarea></p>
+    <p><label for="id_actions">Actions:</label> <textarea name="actions" cols="40" rows="10" required id="id_actions">
+    </textarea></p>
+    <br>
+    <p><label>Sub Incident Types :</p>
+    <div class="custom-control custom-checkbox">
+      <p>
+        <input type="checkbox" class="custom-control-input" name="type_env" id="id_type_env">
+        <label class="custom-control-label" for="id_type_env">: Type env</label>
+      </p>
+      <p>
+        <input type="checkbox" class="custom-control-input" name="type_inju" id="id_type_inju">
+        <label class="custom-control-label" for="id_type_inju">: Type inju</label>
+      </p>
+      <p>
+        <input type="checkbox" class="custom-control-input" name="type_property" id="id_type_property">
+        <label class="custom-control-label" for="id_type_property">: Type property</label>
+      </p>
+      <p>
+        <input type="checkbox" class="custom-control-input" name="type_vehicle" id="id_type_vehicle">
+        <label class="custom-control-label" for="id_type_vehicle">: Type vehicle</label>
+      </p>
+      <p>
+        <input type="checkbox" class="custom-control-input" name="submitted" id="id_submitted">
+        <label class="custom-control-label" for="id_submitted">: Submitted</label>
+      </p>
+      <p>
+        <label for="id_reported_by_id">Reported by User : {{ user.username }} </label>
+        <input type="hidden" name="reported_by_id" required id="id_reported_by_id" value= "{{ user.id }}" >
+      </p>
+    </div>
+    <button type="submit" class="btn btn-success btn-rounded">Save the Incident</button>
+    </form>
+
+    {% endblock containt %}
+

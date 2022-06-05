@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Thanks {{ user.username }}{% endblock title %}
+    {% block containt %}
+    <main>
+      {% if user.is_authenticated %}
+          <h1>Thanks {{ user.username }} </h1>
+          <h1>Form Submitted </h1>
+          <a href="{% url 'homepage' %}">Home Page</a>
+      {% endif %}
+    </main>
+    {% endblock containt %}
